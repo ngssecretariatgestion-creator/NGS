@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NGS Secrétariat & Gestion — Assistance administrative, Ozoir-la-Ferrière</title>
+<meta name="description" content="NGS Secrétariat & Gestion accompagne artisans, indépendants, professions libérales et TPE/PME dans la gestion administrative et commerciale, à Ozoir-la-Ferrière et à distance.">
+<link rel="icon" href="data:,">
+<style>
+  :root{
+    --bg:#ffffff;
+    --bg-alt:#f3f8f9;
+    --bg-alt2:#eaf3f5;
+    --ink:#233138;
+    --body:#5b6b72;
+    --teal:#3f9bb8;
+    --teal-deep:#2d7690;
+    --teal-ink:#ffffff;
+    --gold:#c98a2e;
+    --border:#e1e8ea;
+    --footer-bg:#232f34;
+    --footer-text:#dbe4e7;
+    --card-bg:#ffffff;
+    --shadow: 0 18px 40px -24px rgba(35,49,56,.35);
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#161f23;
+      --bg-alt:#1b262b;
+      --bg-alt2:#1f2c31;
+      --ink:#eef3f5;
+      --body:#a7b7bd;
+      --teal:#65bdd6;
+      --teal-deep:#8fd0e4;
+      --teal-ink:#0f2429;
+      --gold:#e3ab4c;
+      --border:#2b3940;
+      --footer-bg:#10181b;
+      --footer-text:#d3dde0;
+      --card-bg:#1c282d;
+      --shadow: 0 18px 40px -20px rgba(0,0,0,.55);
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#161f23;
+    --bg-alt:#1b262b;
+    --bg-alt2:#1f2c31;
+    --ink:#eef3f5;
+    --body:#a7b7bd;
+    --teal:#65bdd6;
+    --teal-deep:#8fd0e4;
+    --teal-ink:#0f2429;
+    --gold:#e3ab4c;
+    --border:#2b3940;
+    --footer-bg:#10181b;
+    --footer-text:#d3dde0;
+    --card-bg:#1c282d;
+    --shadow: 0 18px 40px -20px rgba(0,0,0,.55);
+  }
+
+  *{box-sizing:border-box;}
+  body{
+    background:var(--bg);
+    color:var(--body);
+    font-family:'Lato', system-ui, sans-serif;
+    line-height:1.65;
+    font-size:17px;
+  }
+  h1,h2,h3{
+    font-family:'Merriweather', Georgia, serif;
+    color:var(--ink);
+    font-weight:400;
+    text-wrap:balance;
+    line-height:1.25;
+  }
+  h1{font-size:clamp(1.9rem,4.2vw,2.9rem);}
+  h2{font-size:clamp(1.5rem,3vw,2.1rem);}
+  h3{font-size:1.25rem;}
+  p{max-width:65ch;}
+  a{color:var(--teal-deep);}
+  .wrap{max-width:1080px;margin:0 auto;padding-inline:24px;}
+  img,svg{max-width:100%;}
+
+  /* header */
+  header.site{
+    background:var(--bg);
+    border-bottom:1px solid var(--border);
+    padding-block:22px 0;
+  }
+  .brand-row{display:flex;align-items:center;gap:18px;flex-wrap:wrap;}
+  .mark{
+    width:64px;height:64px;flex:none;border-radius:16px;
+    background:linear-gradient(155deg,var(--teal),var(--teal-deep));
+    display:flex;align-items:center;justify-content:center;
+    box-shadow:var(--shadow);
+  }
+  .mark svg{width:34px;height:34px;stroke:#fff;fill:none;stroke-width:1.6;}
+  .brand-text h1{
+    margin:0;font-size:clamp(1.5rem,4vw,2.15rem);letter-spacing:.01em;color:var(--teal);
+  }
+  .brand-text .tagline{
+    font-size:.82rem;letter-spacing:.14em;text-transform:uppercase;color:var(--body);margin-top:2px;
+  }
+  nav.site{margin-top:20px;}
+  nav.site ul{list-style:none;display:flex;flex-wrap:wrap;gap:6px;padding:0;margin:0;border-top:1px solid var(--border);padding-top:10px;}
+  nav.site button{
+    font-family:'Lato',sans-serif;font-size:.98rem;background:none;border:none;cursor:pointer;
+    color:var(--body);padding:9px 16px;border-radius:999px;transition:.15s;
+  }
+  nav.site button:hover{color:var(--teal-deep);}
+  nav.site button.active{background:var(--teal);color:var(--teal-ink);}
+  nav.site button:focus-visible{outline:2px solid var(--teal-deep);outline-offset:2px;}
+
+  main{display:block;}
+  section.page{padding-block:56px;}
+  [hidden]{display:none!important;}
+
+  .kicker{
+    text-transform:uppercase;letter-spacing:.16em;font-size:.78rem;color:var(--teal-deep);
+    font-weight:700;margin-bottom:10px;
+  }
+
+  .hero{
+    background:linear-gradient(140deg,var(--teal-deep),var(--teal) 65%);
+    color:#fff;padding-block:64px;position:relative;overflow:hidden;
+  }
+  .hero .wrap{position:relative;z-index:1;}
+  .hero h1{color:#fff;max-width:16ch;}
+  .hero p{color:#eef7fa;font-size:1.08rem;max-width:56ch;}
+  .hero .pitch{font-weight:700;letter-spacing:.02em;margin-block:18px;color:#fff;}
+  .hero-deco{position:absolute;inset:0;opacity:.15;pointer-events:none;}
+  .hero-deco svg{width:520px;height:520px;position:absolute;right:-120px;top:-80px;stroke:#fff;fill:none;stroke-width:1;}
+
+  .btn{
+    display:inline-flex;align-items:center;gap:8px;background:var(--teal);color:var(--teal-ink);
+    border:none;padding:13px 24px;font-family:'Lato',sans-serif;font-weight:700;font-size:.98rem;
+    cursor:pointer;text-decoration:none;transition:.15s;
+  }
+  .btn:hover{background:var(--teal-deep);}
+  .btn.ghost{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.7);}
+  .btn.ghost:hover{background:rgba(255,255,255,.12);}
+  .btn.outline{background:transparent;color:var(--teal-deep);border:1.5px solid var(--teal-deep);}
+  .btn.outline:hover{background:var(--bg-alt);}
+
+  .alt{background:var(--bg-alt);}
+
+  .grid-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:22px;margin-top:34px;}
+  .card{
+    background:var(--card-bg);border:1px solid var(--border);padding:26px 24px;display:flex;flex-direction:column;gap:12px;
+  }
+  .card .icon{width:44px;height:44px;color:var(--teal-deep);}
+  .card .icon svg{width:100%;height:100%;stroke:currentColor;fill:none;stroke-width:1.5;}
+  .card h3{margin:0;font-size:1.12rem;}
+  .card p{margin:0;font-size:.96rem;}
+  .card .btn{margin-top:auto;align-self:flex-start;padding:10px 18px;font-size:.88rem;}
+
+  .split{display:grid;grid-template-columns:1.1fr .9fr;gap:44px;align-items:center;}
+  @media (max-width:760px){.split{grid-template-columns:1fr;}}
+  .panel{
+    background:linear-gradient(150deg,var(--bg-alt2),var(--bg-alt));
+    border:1px solid var(--border);
+    padding:34px;display:flex;flex-direction:column;gap:16px;align-items:flex-start;
+    min-height:220px;justify-content:center;
+  }
+  .panel .icon{width:52px;height:52px;color:var(--teal-deep);}
+  .panel .icon svg{width:100%;height:100%;stroke:currentColor;fill:none;stroke-width:1.4;}
+  .divider-dot{color:var(--gold);}
+
+  .stack{display:flex;flex-direction:column;gap:46px;}
+  .band{display:grid;grid-template-columns:.85fr 1.15fr;gap:40px;align-items:center;}
+  @media (max-width:760px){.band{grid-template-columns:1fr;}}
+  .band .num{
+    font-family:'Merriweather',serif;font-size:2.6rem;color:var(--teal);opacity:.5;
+  }
+
+  .contact-info{display:flex;flex-wrap:wrap;gap:28px;margin-top:30px;}
+  .info-item{display:flex;gap:14px;align-items:flex-start;}
+  .info-item .icon{width:30px;height:30px;flex:none;color:var(--teal-deep);}
+  .info-item .icon svg{width:100%;height:100%;stroke:currentColor;fill:none;stroke-width:1.5;}
+  .info-item h3{margin:0 0 3px;font-size:1rem;font-family:'Lato',sans-serif;font-weight:700;color:var(--ink);}
+  .info-item p{margin:0;}
+
+  form.contact{display:flex;flex-direction:column;gap:16px;max-width:520px;margin-top:22px;}
+  form.contact label{font-weight:700;color:var(--ink);font-size:.92rem;}
+  form.contact input,form.contact textarea{
+    font-family:'Lato',sans-serif;font-size:1rem;padding:11px 13px;border:1px solid var(--border);
+    background:var(--bg);color:var(--ink);width:100%;
+  }
+  form.contact input:focus,form.contact textarea:focus{outline:2px solid var(--teal);outline-offset:1px;}
+  form.contact .hp{position:absolute;left:-9999px;}
+  .note{background:var(--bg-alt);border-left:3px solid var(--teal);padding:16px 18px;font-size:.94rem;margin-top:18px;}
+
+  .legal h2{margin-top:40px;font-size:1.25rem;}
+  .legal h2:first-of-type{margin-top:0;}
+  .legal p, .legal li{font-size:.96rem;max-width:72ch;}
+
+  footer.site{background:var(--footer-bg);color:var(--footer-text);padding-block:34px;margin-top:0;}
+  footer.site .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px;align-items:center;font-size:.9rem;}
+  footer.site nav ul{list-style:none;display:flex;flex-wrap:wrap;gap:16px;padding:0;margin:0;}
+  footer.site nav a{color:var(--footer-text);text-decoration:none;font-size:.85rem;opacity:.85;background:none;border:none;cursor:pointer;font-family:'Lato',sans-serif;padding:0;}
+  footer.site nav a:hover{opacity:1;text-decoration:underline;}
+
+  .theme-toggle{
+    position:fixed;bottom:18px;right:18px;width:38px;height:38px;border-radius:999px;
+    background:var(--card-bg);border:1px solid var(--border);color:var(--ink);cursor:pointer;
+    display:flex;align-items:center;justify-content:center;box-shadow:var(--shadow);z-index:20;
+  }
+  .theme-toggle svg{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:1.6;}
+</style>
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Lato:wght@400;700&display=swap">
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap">
+    <div class="brand-row">
+      <div class="mark" aria-hidden="true">
+        <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3.5" width="14" height="17" rx="1.4"/><path d="M9 3.5V2.6a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v.9"/><path d="M8.2 11.5l2.2 2.2 5-5"/></svg>
+      </div>
+      <div class="brand-text">
+        <h1>NGS Secrétariat &amp; Gestion</h1>
+        <div class="tagline">À chacun son métier, à chacun son quotidien</div>
+      </div>
+    </div>
+    <nav class="site" aria-label="Navigation principale">
+      <ul id="nav-list">
+        <li><button data-page="accueil">Accueil</button></li>
+        <li><button data-page="services">Nos Services</button></li>
+        <li><button data-page="apropos">À Propos</button></li>
+        <li><button data-page="contact">Contact</button></li>
+        <li><button data-page="mentions">Mentions Légales</button></li>
+        <li><button data-page="confidentialite">Politique de confidentialité</button></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<!-- ACCUEIL -->
+<section class="page" data-page="accueil" id="accueil">
+  <div class="hero">
+    <div class="hero-deco" aria-hidden="true">
+      <svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="40"/><circle cx="50" cy="50" r="30"/></svg>
+    </div>
+    <div class="wrap">
+      <h1>Vous manquez de temps pour gérer votre administratif&nbsp;?</h1>
+      <p>NGS Secrétariat &amp; Gestion vous accompagne à distance ou sur site pour gérer vos tâches administratives et commerciales.</p>
+      <p class="pitch">Sans embauche <span class="divider-dot">•</span> Sans engagement <span class="divider-dot">•</span> À la carte</p>
+      <p>Gagnez du temps, restez organisé et concentrez-vous sur votre activité.</p>
+      <p style="margin-top:26px;"><button class="btn" onclick="go('contact')">Demandez votre échange gratuit de 30 minutes</button></p>
+    </div>
+  </div>
+
+  <div class="wrap" style="padding-block:60px;">
+    <div class="kicker">Des solutions sur mesure pour tous</div>
+    <h2>Vous manquez de temps pour gérer votre administratif&nbsp;?</h2>
+    <p>Devis, factures, relances, emails, courriers ou suivi de dossiers prennent du temps et vous éloignent de votre activité.</p>
+    <p>NGS Secrétariat &amp; Gestion vous accompagne selon vos besoins, pour quelques heures ponctuellement ou dans le cadre d'un accompagnement régulier.</p>
+    <p>Vous bénéficiez d'une assistance flexible et personnalisée, sans avoir à recruter une secrétaire à temps plein.</p>
+  </div>
+
+  <div class="alt" style="padding-block:60px;">
+    <div class="wrap">
+      <h2>Nos domaines d'intervention</h2>
+      <p>Vous souhaitez vous concentrer sur votre activité plutôt que sur votre administratif&nbsp;? NGS Secrétariat &amp; Gestion prend en charge les tâches qui vous font perdre du temps, ponctuellement ou régulièrement, selon vos besoins.</p>
+
+      <div class="grid-cards">
+        <div class="card">
+          <div class="icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="1.5"/><path d="M3 6.5l9 6.5 9-6.5"/></svg></div>
+          <h3>Gestion administrative et secrétariat</h3>
+          <p>Courriers, emails, classement, saisie de documents, comptes-rendus, suivi de dossiers… Je prends en charge vos tâches administratives pour vous permettre de vous concentrer sur votre activité.</p>
+          <button class="btn outline" onclick="go('contact')">Parlons de vos besoins</button>
+        </div>
+        <div class="card">
+          <div class="icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3h8l4 4v14H7z"/><path d="M15 3v4h4"/><path d="M9.5 12.5h5M9.5 15.5h5"/></svg></div>
+          <h3>Gestion commerciale et facturation</h3>
+          <p>Devis, factures, suivi des paiements et relances clients&nbsp;: je vous accompagne dans la gestion commerciale de votre entreprise pour vous aider à garder une trésorerie saine et à ne plus laisser les impayés s'accumuler.</p>
+          <button class="btn outline" onclick="go('contact')">Parlons de vos besoins</button>
+        </div>
+        <div class="card">
+          <div class="icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M8 12a4 4 0 118 0 4 4 0 01-8 0z"/><path d="M4 21c1-3.5 4-5 8-5s7 1.5 8 5"/></svg></div>
+          <h3>Relation fournisseurs</h3>
+          <p>Demandes de devis, suivi des commandes, vérification des factures et échanges avec vos fournisseurs&nbsp;: je vous aide à assurer un suivi rigoureux de vos achats et à garder une bonne organisation au quotidien.</p>
+          <button class="btn outline" onclick="go('contact')">En savoir plus</button>
+        </div>
+        <div class="card">
+          <div class="icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="13" rx="1.5"/><path d="M8 7V5.5A1.5 1.5 0 019.5 4h5A1.5 1.5 0 0116 5.5V7"/><path d="M3 12h18"/></svg></div>
+          <h3>Accompagnement TPE/PME</h3>
+          <p>Vous êtes dirigeant d'une TPE ou PME et vous avez besoin de déléguer une partie de votre administratif&nbsp;? Je vous propose un accompagnement flexible et personnalisé, adapté à votre activité et à votre charge de travail.</p>
+          <button class="btn outline" onclick="go('contact')">Accompagnement sur mesure</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap" style="padding-block:60px;">
+    <div class="split">
+      <div>
+        <h2>Qui sommes-nous&nbsp;?</h2>
+        <p>NGS Secrétariat &amp; Gestion est une entreprise basée à Ozoir La Ferrière, spécialisée dans l'assistance administrative et la gestion pour les artisans, indépendants et TPE/PME.</p>
+        <p>Mon objectif est simple&nbsp;: vous faire gagner du temps en prenant en charge les tâches administratives qui vous ralentissent au quotidien.</p>
+        <p>Je vous propose un accompagnement flexible et personnalisé, ponctuel ou régulier, adapté à votre activité et à vos besoins.</p>
+        <p style="margin-top:20px;"><button class="btn" onclick="go('contact')">Parlons de votre projet</button></p>
+      </div>
+      <div class="panel">
+        <div class="icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.4"/><path d="M5 20c1.2-4 4-6 7-6s5.8 2 7 6"/></svg></div>
+        <h3 style="margin:0;">Ozoir-la-Ferrière</h3>
+        <p style="margin:0;">Un accompagnement de proximité, à distance ou sur site.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="alt" style="padding-block:60px;">
+    <div class="wrap" style="text-align:center;">
+      <h2>Libérez-vous des contraintes&nbsp;!</h2>
+      <p style="max-width:60ch;margin-inline:auto;">Imaginez un quotidien où les tâches administratives ne sont plus un fardeau. Avec NGS Secrétariat &amp; Gestion, transformez cette vision en réalité et retrouvez du temps pour ce qui compte vraiment.</p>
+      <p style="margin-top:24px;"><button class="btn" onclick="go('contact')">Demandez votre échange gratuit de 30 minutes</button></p>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="page" data-page="services" id="services" hidden>
+  <div class="hero">
+    <div class="wrap">
+      <h1>Des solutions sur mesure pour votre entreprise</h1>
+      <p>Simplifiez votre quotidien et concentrez-vous sur l'essentiel avec NGS Secrétariat &amp; Gestion. Découvrez comment nos services peuvent transformer votre gestion administrative et commerciale, vous offrant temps, organisation et sérénité.</p>
+    </div>
+  </div>
+
+  <div class="wrap" style="padding-block:60px;">
+    <h2>Nos services clés</h2>
+    <p>Nous proposons une gamme de services spécialisés pour alléger votre charge administrative et commerciale. Découvrez comment nos solutions flexibles et adaptées à votre budget peuvent vous aider à optimiser votre temps et votre organisation.</p>
+
+    <div class="grid-cards">
+      <div class="card">
+        <div class="icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="1.5"/><path d="M3 6.5l9 6.5 9-6.5"/></svg></div>
+        <h3>Gestion administrative et secrétariat</h3>
+        <p>Prise en charge de vos courriers, e-mails, documents, classement, suivi de dossiers et toutes vos tâches administratives pour une organisation impeccable.</p>
+      </div>
+      <div class="card">
+        <div class="icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3h8l4 4v14H7z"/><path d="M15 3v4h4"/><path d="M9.5 12.5h5M9.5 15.5h5"/></svg></div>
+        <h3>Gestion commerciale et facturation</h3>
+        <p>Rédaction de devis et factures, suivi des paiements, relances clients et suivi de trésorerie pour une gestion financière saine.</p>
+      </div>
+      <div class="card">
+        <div class="icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="13" rx="1.5"/><path d="M8 7V5.5A1.5 1.5 0 019.5 4h5A1.5 1.5 0 0116 5.5V7"/><path d="M3 12h18"/></svg></div>
+        <h3>Accompagnement TPE/PME</h3>
+        <p>Gestion des relations fournisseurs, suivi des commandes, vérification des factures et accompagnement administratif sur mesure.</p>
+      </div>
+    </div>
+    <p style="margin-top:30px;"><button class="btn" onclick="go('contact')">Contactez-nous</button></p>
+  </div>
+
+  <div class="alt" style="padding-block:60px;">
+    <div class="wrap" style="text-align:center;">
+      <h2>Libérez votre potentiel, nous gérons le reste</h2>
+      <p style="max-width:60ch;margin-inline:auto;">NGS Secrétariat &amp; Gestion simplifie votre quotidien en prenant en charge vos tâches administratives et commerciales. Gagnez du temps, organisez-vous mieux et concentrez-vous sur ce qui compte le plus&nbsp;: le développement de votre activité.</p>
+    </div>
+  </div>
+
+  <div class="wrap" style="padding-block:60px;">
+    <div class="stack">
+      <div class="band">
+        <div class="num">01</div>
+        <div>
+          <h2>Nous simplifions votre quotidien</h2>
+          <p>Je vous fais gagner un temps précieux en gérant toutes les tâches administratives et commerciales chronophages. Fini le stress des documents désordonnés et des relances clients oubliées. Je vous aide à organiser vos dossiers, suivre vos paiements et optimiser vos relations fournisseurs. Vous retrouvez une organisation claire, un suivi rigoureux et plus de sérénité pour vous dédier à votre cœur de métier.</p>
+        </div>
+      </div>
+      <div class="band">
+        <div class="num">02</div>
+        <div>
+          <h2>Nos services sont faits pour vous</h2>
+          <p>Nos services s'adressent aux artisans, indépendants, professions libérales et dirigeants de TPE/PME qui manquent de temps et souhaitent déléguer leurs tâches administratives. Que vous ayez un besoin ponctuel suite à une surcharge de travail, un remplacement, ou que vous recherchiez une assistance régulière, nos solutions flexibles s'adaptent à votre budget et vous permettent de vous concentrer pleinement sur votre activité principale.</p>
+          <p style="margin-top:16px;"><button class="btn" onclick="go('contact')">Obtenir un devis</button></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- A PROPOS -->
+<section class="page" data-page="apropos" id="apropos" hidden>
+  <div class="hero">
+    <div class="wrap">
+      <h1>À propos de NGS Secrétariat &amp; Gestion</h1>
+      <p>Découvrez notre mission, nos valeurs et comment nous pouvons alléger votre charge administrative pour que vous puissiez vous concentrer sur l'essentiel de votre activité.</p>
+    </div>
+  </div>
+
+  <div class="wrap" style="padding-block:60px;">
+    <div class="stack">
+      <div class="band">
+        <div class="num">01</div>
+        <div>
+          <h2>Notre histoire et notre mission</h2>
+          <p>NGS Secrétariat &amp; Gestion a été créé pour accompagner les artisans, commerçants, indépendants, professions libérales et dirigeants de TPE/PME dans la gestion de leurs tâches administratives et commerciales. Nous sommes passionnés par l'idée d'aider les entreprises à prospérer en libérant leur temps des contraintes administratives.</p>
+          <p style="margin-top:14px;"><button class="btn outline" onclick="go('services')">Découvrir nos services</button></p>
+        </div>
+      </div>
+      <div class="band">
+        <div class="num">02</div>
+        <div>
+          <h2>Ce qui nous rend uniques</h2>
+          <p>Notre objectif est simple&nbsp;: vous faire gagner du temps et vous permettre de vous concentrer pleinement sur votre activité. Chez NGS Secrétariat &amp; Gestion, nous offrons des solutions flexibles, sans engagement et adaptées à votre budget, que ce soit pour un besoin ponctuel (surcharge de travail, remplacement) ou une assistance régulière de quelques heures par semaine. C'est pourquoi nos clients nous choisissent.</p>
+          <p style="margin-top:14px;"><button class="btn outline" onclick="go('contact')">Prendre rendez-vous</button></p>
+        </div>
+      </div>
+      <div class="band">
+        <div class="num">03</div>
+        <div>
+          <h2>Nos valeurs au quotidien</h2>
+          <p>Au quotidien, les tâches administratives peuvent rapidement devenir chronophages&nbsp;: gestion des e-mails et courriers, préparation de documents, devis, facturation, suivi des paiements, relances clients, classement, suivi des dossiers ou encore échanges avec les fournisseurs. Nous valorisons la rigueur, la confidentialité et l'efficacité pour vous offrir un service impeccable et une tranquillité d'esprit.</p>
+          <p style="margin-top:14px;"><button class="btn outline" onclick="go('accueil')">Retour à l'accueil</button></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="alt" style="padding-block:60px;">
+    <div class="wrap" style="text-align:center;">
+      <h2>Retrouvez la sérénité au quotidien</h2>
+      <p style="max-width:60ch;margin-inline:auto;">NGS vous aide à reprendre le contrôle de votre organisation, avec une assistance adaptée à vos besoins et à votre rythme. Nous souhaitons que nos clients se sentent libérés des contraintes administratives, plus organisés et sereins, leur permettant ainsi de développer leur activité avec succès.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="page" data-page="contact" id="contact" hidden>
+  <div class="hero">
+    <div class="wrap">
+      <h1>Contactez-nous pour une assistance administrative et commerciale sur mesure</h1>
+      <p>Chez NGS Secrétariat &amp; Gestion, nous vous proposons des solutions flexibles pour la gestion administrative et commerciale, adaptées à vos besoins spécifiques. Que vous soyez artisan, commerçant, profession libérale, dirigeant de TPE/PME ou un particulier, nous sommes là pour vous accompagner. Gagnez du temps, restez organisé et concentrez-vous sur l'essentiel de votre activité en nous confiant vos tâches administratives et commerciales.</p>
+
+      <div class="contact-info">
+        <div class="info-item">
+          <div class="icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke="#fff"><rect x="3" y="5" width="18" height="14" rx="1.5"/><path d="M3 6.5l9 6.5 9-6.5"/></svg></div>
+          <div><h3 style="color:#fff;">E-mail</h3><p style="color:#eef7fa;"><a href="mailto:ngs.secretariatgestion@gmail.com" style="color:#fff;">ngs.secretariatgestion@gmail.com</a></p></div>
+        </div>
+        <div class="info-item">
+          <div class="icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke="#fff"><path d="M6.5 3.5c1 0 2 2 2 3s-1 1.5-1 2.5 2.5 4.5 3.5 5.5 3.5 1 4.5 2 1 2-1 3c-1 1-7-1-10-5-3-4-4-9-1-11z"/></svg></div>
+          <div><h3 style="color:#fff;">Téléphone</h3><p style="color:#eef7fa;"><a href="tel:0768400868" style="color:#fff;">07.68.40.08.68</a></p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap" style="padding-block:60px;">
+    <div class="split">
+      <div>
+        <h2>Votre partenaire en gestion administrative et commerciale</h2>
+        <p>NGS Secrétariat &amp; Gestion accompagne les artisans, commerçants, professions libérales, TPE/PME et particuliers dans leurs démarches administratives et commerciales. Gagnez du temps, restez organisé et concentrez-vous sur votre activité&nbsp;: nous nous occupons de vos tâches administratives avec sérieux, flexibilité et confidentialité.</p>
+        <p style="margin-top:14px;"><button class="btn outline" onclick="go('services')">Découvrez nos services</button></p>
+      </div>
+      <div class="panel">
+        <div class="icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.4"/><path d="M5 20c1.2-4 4-6 7-6s5.8 2 7 6"/></svg></div>
+        <h3 style="margin:0;">Ozoir-la-Ferrière</h3>
+        <p style="margin:0;">Intervention à distance ou sur site.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="alt" style="padding-block:60px;">
+    <div class="wrap">
+      <div class="kicker">Discutons de vos besoins</div>
+      <h2>Formulaire de contact</h2>
+      <p>Remplissez le formulaire ci-dessous pour nous envoyer un message. Nous vous recontacterons dans les plus brefs délais. Pour une première prise de contact, nous vous offrons également un échange gratuit de 30 minutes afin de bien comprendre vos attentes.</p>
+      <p>Avant de nous contacter, il est utile de préciser le type de service recherché (gestion administrative, secrétariat, devis et facturation, relances, suivi de dossiers, gestion commerciale, etc.), ainsi que le besoin et son degré d'urgence. Si possible, indiquez si vous recherchez une intervention ponctuelle ou un accompagnement régulier.</p>
+
+      <form class="contact" id="contactForm">
+        <div>
+          <label for="cf-nom">Nom *</label><br>
+          <input id="cf-nom" name="nom" type="text" required>
+        </div>
+        <div>
+          <label for="cf-email">Adresse e-mail *</label><br>
+          <input id="cf-email" name="email" type="email" required>
+        </div>
+        <div>
+          <label for="cf-message">Message *</label><br>
+          <textarea id="cf-message" name="message" rows="5" required></textarea>
+        </div>
+        <input class="hp" type="text" name="company" tabindex="-1" autocomplete="off">
+        <div><button class="btn" type="submit">Envoyer le formulaire</button></div>
+      </form>
+
+      <div class="note">
+        <strong>Protection de vos données&nbsp;:</strong> les informations recueillies via ce formulaire sont utilisées uniquement pour répondre à votre demande et vous recontacter. Elles sont destinées à NGS Secrétariat &amp; Gestion. Vous disposez d'un droit d'accès, de rectification, d'effacement et, selon les cas, d'opposition et de limitation du traitement de vos données. Pour exercer vos droits ou pour toute question concernant vos données personnelles, vous pouvez nous contacter à l'adresse&nbsp;: <a href="mailto:ngs.secretariatgestion@gmail.com">ngs.secretariatgestion@gmail.com</a>.
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap" style="padding-block:60px;">
+    <h2>Pourquoi nous contacter&nbsp;?</h2>
+    <p>Contactez NGS Secrétariat &amp; Gestion pour obtenir une assistance administrative et commerciale flexible, sans avoir à recruter une secrétaire à temps plein. Nous vous aidons avec la gestion administrative, les devis, les factures, les relances clients, le suivi des paiements, les dossiers, le courrier et les e-mails, ainsi que les relations avec les fournisseurs. Notre objectif est de vous faire gagner du temps, de maintenir votre organisation et de vous permettre de vous concentrer pleinement sur votre cœur de métier.</p>
+  </div>
+</section>
+
+<!-- MENTIONS LEGALES -->
+<section class="page" data-page="mentions" id="mentions" hidden>
+  <div class="wrap legal" style="padding-block:60px;">
+    <div class="kicker">Informations légales</div>
+    <h1>Mentions Légales</h1>
+
+    <h2>1. Éditeur du site</h2>
+    <p>NGS – Nadine Soulié, entrepreneur individuel (micro-entrepreneur). SIRET&nbsp;: 107 338 659 00017. Adresse&nbsp;: 24 avenue Général Leclerc, 77330 Ozoir-la-Ferrière, France. Contact&nbsp;: <a href="mailto:ngs.secretariatgestion@gmail.com">ngs.secretariatgestion@gmail.com</a>, 07.68.40.08.68. Responsable de la publication&nbsp;: Nadine Soulié.</p>
+
+    <h2>2. Activité</h2>
+    <p>NGS propose des prestations de secrétariat, d'assistance administrative et de gestion, réalisées à distance ou sur site selon les besoins du client.</p>
+
+    <h2>3. TVA</h2>
+    <p>TVA non applicable, article 293 B du Code général des impôts.</p>
+
+    <h2>4. Hébergement</h2>
+    <p>Ce site est hébergé par un prestataire technique choisi par l'éditeur.</p>
+
+    <h2>5. Propriété intellectuelle</h2>
+    <p>L'ensemble des contenus de ce site est protégé. Toute reproduction nécessite une autorisation préalable.</p>
+
+    <h2>6. Responsabilité</h2>
+    <p>L'exactitude des informations est privilégiée, sans que leur exhaustivité puisse être garantie.</p>
+
+    <h2>7. Données personnelles</h2>
+    <p>Traitées conformément à la réglementation applicable. Pour toute question&nbsp;: <a href="mailto:ngs.secretariatgestion@gmail.com">ngs.secretariatgestion@gmail.com</a>.</p>
+
+    <h2>8. Cookies</h2>
+    <p>Le site utilise des cookies nécessaires à son fonctionnement&nbsp;; les traceurs soumis à consentement font l'objet d'une information préalable.</p>
+
+    <h2>9. Conditions de vente</h2>
+    <p>Les prestations sont soumises aux CGV en vigueur.</p>
+
+    <h2>10. Mise à jour</h2>
+    <p>Dernière mise à jour&nbsp;: 13 août 2026.</p>
+  </div>
+</section>
+
+<!-- CONFIDENTIALITE -->
+<section class="page" data-page="confidentialite" id="confidentialite" hidden>
+  <div class="wrap legal" style="padding-block:60px;">
+    <div class="kicker">Dernière mise à jour&nbsp;: 13 août 2026</div>
+    <h1>Politique de confidentialité</h1>
+
+    <h2>1. Responsable du traitement</h2>
+    <p>NGS – Nadine Soulié, entreprise individuelle (micro-entrepreneur), SIRET 107 338 659 00017, 24 avenue Général Leclerc, 77330 Ozoir-la-Ferrière, France. Contact&nbsp;: <a href="mailto:ngs.secretariatgestion@gmail.com">ngs.secretariatgestion@gmail.com</a>, 07.68.40.08.68.</p>
+
+    <h2>2. Données personnelles collectées</h2>
+    <p>Nom et prénom&nbsp;; adresse e-mail&nbsp;; numéro de téléphone&nbsp;; contenu du message, ainsi que toute autre information transmise volontairement via le formulaire de contact.</p>
+
+    <h2>3. Finalités de la collecte</h2>
+    <p>Répondre aux demandes, échanger avec les personnes intéressées, préparer une relation commerciale, assurer le suivi des prestations et répondre aux obligations légales.</p>
+
+    <h2>4. Base légale</h2>
+    <p>Le traitement repose sur les démarches précontractuelles, l'exécution d'un contrat, une obligation légale ou l'intérêt légitime de l'entreprise.</p>
+
+    <h2>5. Destinataires des données</h2>
+    <p>Les données sont destinées à NGS – Nadine Soulié et, si nécessaire, à ses prestataires techniques. Elles ne sont ni vendues ni cédées à des fins commerciales.</p>
+
+    <h2>6. Durée de conservation</h2>
+    <p>Les données issues du formulaire de contact sont conservées le temps du traitement de la demande et une durée raisonnable ensuite&nbsp;; les données clients sont conservées conformément aux obligations légales et comptables&nbsp;; les données de prospection suivent les recommandations de la CNIL.</p>
+
+    <h2>7. Documents transmis par le client</h2>
+    <p>Les documents confiés par le client dans le cadre d'une mission sont traités selon le périmètre de la mission et les obligations de confidentialité, précisées le cas échéant dans le contrat.</p>
+
+    <h2>8. Sécurité des données</h2>
+    <p>Des mesures organisationnelles et techniques adaptées sont mises en œuvre pour protéger les données personnelles contre tout accès ou divulgation non autorisés.</p>
+
+    <h2>9. Droits des personnes</h2>
+    <p>Vous disposez d'un droit d'accès, de rectification, d'effacement, de limitation, d'opposition et de portabilité de vos données. Pour exercer ces droits&nbsp;: <a href="mailto:ngs.secretariatgestion@gmail.com">ngs.secretariatgestion@gmail.com</a> (réponse sous un mois environ).</p>
+
+    <h2>10. Réclamation auprès de la CNIL</h2>
+    <p>Vous pouvez introduire une réclamation auprès de la CNIL, autorité française de protection des données.</p>
+
+    <h2>11. Cookies</h2>
+    <p>Le site utilise des cookies nécessaires&nbsp;; les traceurs soumis à consentement requièrent votre accord préalable.</p>
+
+    <h2>12. Mise à jour de la politique</h2>
+    <p>Cette politique peut être révisée à tout moment en fonction des évolutions légales ou de l'activité.</p>
+  </div>
+</section>
+
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <div>© 2026 NGS Secrétariat &amp; Gestion — Ozoir-la-Ferrière</div>
+    <nav aria-label="Navigation pied de page">
+      <ul>
+        <li><a onclick="go('accueil')">Accueil</a></li>
+        <li><a onclick="go('services')">Nos Services</a></li>
+        <li><a onclick="go('apropos')">À Propos</a></li>
+        <li><a onclick="go('contact')">Contact</a></li>
+        <li><a onclick="go('mentions')">Mentions Légales</a></li>
+        <li><a onclick="go('confidentialite')">Politique de confidentialité</a></li>
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+<button class="theme-toggle" id="themeToggle" aria-label="Changer de thème" title="Changer de thème">
+  <svg viewBox="0 0 24 24"><path d="M12 3v2M12 19v2M4.2 4.2l1.4 1.4M18.4 18.4l1.4 1.4M3 12h2M19 12h2M4.2 19.8l1.4-1.4M18.4 5.6l1.4-1.4"/><circle cx="12" cy="12" r="4.5"/></svg>
+</button>
+
+<script>
+  function go(page){
+    document.querySelectorAll('section.page').forEach(function(s){ s.hidden = (s.dataset.page !== page); });
+    document.querySelectorAll('nav.site button').forEach(function(b){ b.classList.toggle('active', b.dataset.page === page); });
+    window.scrollTo({top:0, behavior:'instant'});
+    try{ history.replaceState(null,'','#'+page); }catch(e){}
+  }
+  document.querySelectorAll('nav.site button').forEach(function(b){
+    b.addEventListener('click', function(){ go(b.dataset.page); });
+  });
+  var startPage = (location.hash || '#accueil').replace('#','');
+  if(!document.querySelector('section.page[data-page="'+startPage+'"]')) startPage = 'accueil';
+  go(startPage);
+
+  document.getElementById('contactForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    var nom = document.getElementById('cf-nom').value;
+    var email = document.getElementById('cf-email').value;
+    var msg = document.getElementById('cf-message').value;
+    var body = 'Nom: ' + nom + '\nEmail: ' + email + '\n\n' + msg;
+    window.location.href = 'mailto:ngs.secretariatgestion@gmail.com?subject=' + encodeURIComponent('Demande de contact - site NGS') + '&body=' + encodeURIComponent(body);
+  });
+
+  var themeBtn = document.getElementById('themeToggle');
+  function applyTheme(t){
+    if(t){ document.documentElement.setAttribute('data-theme', t); }
+    else { document.documentElement.removeAttribute('data-theme'); }
+  }
+  try{
+    var saved = localStorage.getItem('ngs-theme');
+    if(saved) applyTheme(saved);
+  }catch(e){}
+  themeBtn.addEventListener('click', function(){
+    var current = document.documentElement.getAttribute('data-theme');
+    var next = current === 'dark' ? 'light' : (current === 'light' ? null : 'dark');
+    applyTheme(next);
+    try{ localStorage.setItem('ngs-theme', next || ''); }catch(e){}
+  });
+</script>
+</body>
+</html>
